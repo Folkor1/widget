@@ -1,10 +1,25 @@
 <!doctype html>
-<html>
-  <head><meta charset="utf-8"/><title>CO₂ Widget Demo</title></head>
-  <body>
-    <script type="module">
-      import { init } from "/src/index.ts";
-      init({ siteId: "demo-site", apiBase: "http://localhost:5253" });
-    </script>
-  </body>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>CO₂ Widget Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body style="font-family: system-ui, sans-serif; padding: 24px">
+    <h1>CO₂ Widget — демо</h1>
+    <p>Нажми на кнопку «CO₂ info» внизу справа → откроется модалка → нажми «Рассчитать».</p>
+
+  <script type="module">
+    import { init } from "../src/index.tsx"; // или из dist, если сборка
+
+    init({
+      siteId: "demo-site",
+      apiBase: "http://localhost:5253",
+      region: "IE",         // или "EU" / "US" / "DEFAULT"
+      cacheHitRate: 0.3,    // если знаешь средний cache hit
+      auto: true,           // ВКЛЮЧАЕМ авто-режим
+      showBadge: true,      // маленькая плашка снизу справа (можно false)
+      settleMs: 1200        // подождать ~1.2s после onload перед замером
+    });
+  </script>
 </html>

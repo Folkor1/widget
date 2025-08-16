@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CO₂ Widget Demo (preview)</title>
+  </head>
+  <body>
+    <script type="module">
+      // В PREVIEW импортируем СОБРАННЫЙ бандл из dist/
+      import { init } from './co2-widget.es.js';
+
+      init({
+        siteId: 'demo-site',
+        apiBase: 'http://localhost:5253',
+        region: 'IE',
+        cacheHitRate: 0.3
+      });
+    </script>
+  </body>
+</html>
